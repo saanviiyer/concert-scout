@@ -1,0 +1,86 @@
+* { box-sizing: border-box; margin: 0; }
+
+:root {
+  --bg: #0f1117; --panel: #181b24; --panel2: #1f2330;
+  --text: #e8eaf0; --muted: #8b90a0; --accent: #7c5cff; --accent2: #34d399;
+  --warn: #f59e0b; --err: #f87171; --border: #2a2f3e;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text);
+  padding: 24px; max-width: 1200px; margin: 0 auto;
+}
+
+header { margin-bottom: 20px; }
+h1 { font-size: 26px; }
+.tagline { color: var(--muted); margin-top: 4px; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 18px 0 8px; }
+
+.badges { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.badge { font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+.badge.on { color: var(--accent2); border-color: var(--accent2); }
+
+main { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.panel.wide { min-height: 300px; }
+
+label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+label.check { display: flex; align-items: center; gap: 8px; margin-top: 14px; color: var(--text); }
+input[type=text], input[type=date], input:not([type]), textarea {
+  width: 100%; background: var(--panel2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font: inherit;
+}
+input[type=range] { width: 100%; accent-color: var(--accent); }
+textarea { resize: vertical; }
+.row { display: flex; gap: 10px; }
+.row > * { flex: 1; }
+
+button { font: inherit; border-radius: 8px; padding: 10px 14px; cursor: pointer; border: 1px solid var(--border); }
+button.primary { background: var(--accent); color: white; border: none; width: 100%; margin-top: 18px; font-weight: 600; }
+button.primary:hover { filter: brightness(1.1); }
+button.secondary { background: var(--panel2); color: var(--text); flex: 1; font-size: 13px; }
+button:disabled { opacity: .5; cursor: wait; }
+
+.error { color: var(--err); margin-top: 12px; font-size: 13px; }
+.muted { color: var(--muted); }
+.hidden { display: none; }
+
+.card {
+  background: var(--panel2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px; margin-bottom: 12px;
+}
+.card .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.card h3 { font-size: 16px; }
+.card .when { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.price { font-weight: 700; color: var(--accent2); white-space: nowrap; }
+.price small { color: var(--muted); font-weight: 400; }
+
+.scorebar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 10px 0 6px; background: var(--bg); }
+.scorebar span { height: 100%; }
+.s-aff { background: var(--accent); }
+.s-price { background: var(--accent2); }
+.s-date { background: var(--warn); }
+.s-seat { background: #38bdf8; }
+.legend { font-size: 11px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+
+.reasons { margin: 10px 0 0 18px; font-size: 13px; color: var(--text); }
+.reasons li { margin-bottom: 3px; }
+
+.cardfoot { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+a.buy {
+  background: var(--accent); color: white; text-decoration: none; font-size: 13px;
+  padding: 6px 12px; border-radius: 7px; font-weight: 600;
+}
+a.buy.alt { background: var(--panel); border: 1px solid var(--border); color: var(--text); font-weight: 400; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--warn); color: var(--warn); }
+.tag.best { border-color: var(--accent2); color: var(--accent2); }
+
+details { margin-top: 18px; }
+summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.step { border-left: 2px solid var(--accent); padding: 6px 12px; margin: 10px 0; }
+.step .stage { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.step .detail { color: var(--muted); font-size: 12px; margin-top: 4px; white-space: pre-wrap; }
